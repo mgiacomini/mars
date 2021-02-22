@@ -1,18 +1,10 @@
 defmodule Mars do
-  @moduledoc """
-  Documentation for `Mars`.
-  """
+  @moduledoc false
 
-  @doc """
-  Hello world.
+  alias Mars.Topology
+  alias Mars.Probe
 
-  ## Examples
-
-      iex> Mars.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def explore(%Topology{} = _topology, %Probe{} = probe, _movements) do
+    {:ok, %Probe{probe | y: 2}}
   end
 end
