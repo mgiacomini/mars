@@ -4,13 +4,13 @@ defmodule MarsTest do
   describe "explore/3" do
     test "returns the probe in the final position" do
       topology = %Mars.Topology{x: 5, y: 5}
-      probe = %Mars.Probe{x: 0, y: 0, direction: "N"}
-      movements = "MMLR"
+      probe = %Mars.Probe{x: 0, y: 0, direction: :north}
+      movements = ["M", "M", "L", "R"]
 
       assert {:ok, %Mars.Probe{} = probe} = Mars.explore(topology, probe, movements)
       assert probe.y == 2
       assert probe.x == 0
-      assert probe.direction == "N"
+      assert probe.direction == :north
     end
     test "returns an error when the position is invalid"
   end

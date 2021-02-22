@@ -4,7 +4,11 @@ defmodule Mars do
   alias Mars.Topology
   alias Mars.Probe
 
-  def explore(%Topology{} = _topology, %Probe{} = probe, _movements) do
-    {:ok, %Probe{probe | y: 2}}
+  def explore(%Topology{} = _topology, %Probe{} = probe, movements) do
+    {:ok, Enum.reduce(movements, probe, fn
+      "M", probe -> Probe.move(probe)
+      "L", probe -> Probe.rotate(probe, :left)
+      "R", probe -> Probe.rotate(probe, :right)
+    end)}
   end
 end
