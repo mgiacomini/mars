@@ -1,4 +1,6 @@
 defmodule Cli.Builder do
+  @moduledoc false
+
   alias Mars.Probe
   alias Mars.Topology
 

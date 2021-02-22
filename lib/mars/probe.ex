@@ -1,4 +1,6 @@
 defmodule Mars.Probe do
+  @moduledoc false
+
   @type direction :: :north | :south | :west | :east
 
   @type t :: %__MODULE__{

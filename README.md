@@ -1,21 +1,22 @@
 # Mars
 
-**TODO: Add description**
+Starting exploring Mars :)
 
-## Installation
+## Architecture
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `mars` to your list of dependencies in `mix.exs`:
+The domain is located in lib/mars.ex file and lib/mars directory.
+The `Mars` module exposes an imperative shell to our domain functionality. (imperative shell/functional core concept).
 
-```elixir
-def deps do
-  [
-    {:mars, "~> 0.1.0"}
-  ]
-end
+The application layer is located in lib/cli.ex and lib/cli directory.
+
+## Testing the application
+
+```sh
+mix test
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/mars](https://hexdocs.pm/mars).
+## Running the application
 
+```sh
+mix mars.run path/to/file.txt
+```

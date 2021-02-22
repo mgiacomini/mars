@@ -1,4 +1,6 @@
 defmodule Mars.Topology do
+  @moduledoc false
+
   @type t :: %__MODULE__{
           x: integer(),
           y: integer()

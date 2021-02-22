@@ -1,5 +1,5 @@
 defmodule Mars do
-  @moduledoc false
+  @moduledoc "Explore Mars using this module."
 
   alias Mars.Topology
   alias Mars.Probe
