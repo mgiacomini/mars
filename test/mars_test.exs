@@ -12,6 +12,32 @@ defmodule MarsTest do
       assert probe.x == 0
       assert probe.direction == :north
     end
-    test "returns an error when the position is invalid"
+
+    # test "returns an error when probe position is less than zero" do
+    #   topology = %Mars.Topology{x: 0, y: 0}
+    #   movements = ["M", "M"]
+
+    #   probe = %Mars.Probe{x: 0, y: 0, direction: :south}
+    #   assert {:error, "Invalid movement"} = Mars.explore(topology, probe, movements)
+
+    #   probe = %Mars.Probe{x: 0, y: 0, direction: :west}
+    #   assert {:error, "Invalid movement"} = Mars.explore(topology, probe, movements)
+    # end
+
+    test "returns an error when the final probe position is outside from topology" do
+      topology = %Mars.Topology{x: 1, y: 1}
+
+      probe = %Mars.Probe{x: 0, y: 0, direction: :north}
+      assert {:error, "Invalid movement"} == Mars.explore(topology, probe, ["M", "M"])
+
+      probe = %Mars.Probe{x: 0, y: 0, direction: :south}
+      assert {:error, "Invalid movement"} == Mars.explore(topology, probe, ["M"])
+
+      probe = %Mars.Probe{x: 0, y: 0, direction: :east}
+      assert {:error, "Invalid movement"} == Mars.explore(topology, probe, ["M", "M"])
+
+      probe = %Mars.Probe{x: 0, y: 0, direction: :west}
+      assert {:error, "Invalid movement"} == Mars.explore(topology, probe, ["M"])
+    end
   end
 end
