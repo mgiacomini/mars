@@ -1,9 +1,8 @@
 defmodule Mars.Topology do
-
   @type t() :: %__MODULE__{
-    x: integer(),
-    y: integer()
-  }
+          x: integer(),
+          y: integer()
+        }
 
   defstruct x: 0, y: 0
 
