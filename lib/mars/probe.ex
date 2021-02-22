@@ -1,7 +1,7 @@
 defmodule Mars.Probe do
-  @type direction() :: :north | :south | :west | :east
+  @type direction :: :north | :south | :west | :east
 
-  @type t() :: %__MODULE__{
+  @type t :: %__MODULE__{
           x: integer(),
           y: integer(),
           direction: direction()

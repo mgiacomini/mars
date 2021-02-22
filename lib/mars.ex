@@ -4,6 +4,7 @@ defmodule Mars do
   alias Mars.Topology
   alias Mars.Probe
 
+  @spec explore(Topology.t(), Probe.t(), any) :: {:error, String.t()} | {:ok, Probe.t()}
   def explore(%Topology{} = topology, %Probe{} = probe, movements) do
     probe =
       Enum.reduce(movements, probe, fn
