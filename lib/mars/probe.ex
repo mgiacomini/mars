@@ -16,9 +16,13 @@ defmodule Mars.Probe do
   def move(%__MODULE__{direction: :west} = probe), do: %__MODULE__{probe | x: probe.x - 1}
   def move(%__MODULE__{direction: :east} = probe), do: %__MODULE__{probe | x: probe.x + 1}
 
-  @spec rotate(Mars.Probe.t(), :left) :: Mars.Probe.t()
+  @spec rotate(Mars.Probe.t(), :left | :right) :: Mars.Probe.t()
   def rotate(%__MODULE__{direction: :north} = probe, :left), do: %__MODULE__{probe | direction: :west}
   def rotate(%__MODULE__{direction: :west} = probe, :left), do: %__MODULE__{probe | direction: :south}
   def rotate(%__MODULE__{direction: :south} = probe, :left), do: %__MODULE__{probe | direction: :east}
   def rotate(%__MODULE__{direction: :east} = probe, :left), do: %__MODULE__{probe | direction: :north}
+  def rotate(%__MODULE__{direction: :north} = probe, :right), do: %__MODULE__{probe | direction: :east}
+  def rotate(%__MODULE__{direction: :east} = probe, :right), do: %__MODULE__{probe | direction: :south}
+  def rotate(%__MODULE__{direction: :south} = probe, :right), do: %__MODULE__{probe | direction: :west}
+  def rotate(%__MODULE__{direction: :west} = probe, :right), do: %__MODULE__{probe | direction: :north}
 end

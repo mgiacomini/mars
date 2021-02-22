@@ -63,5 +63,19 @@ defmodule Mars.ProbeTest do
       probe = Probe.rotate(%Probe{x: 0, y: 0, direction: :east}, :left)
       assert probe.direction == :north
     end
+
+    test "rotate to right" do
+      probe = Probe.rotate(%Probe{x: 0, y: 0, direction: :north}, :right)
+      assert probe.direction == :east
+
+      probe = Probe.rotate(%Probe{x: 0, y: 0, direction: :east}, :right)
+      assert probe.direction == :south
+
+      probe = Probe.rotate(%Probe{x: 0, y: 0, direction: :south}, :right)
+      assert probe.direction == :west
+
+      probe = Probe.rotate(%Probe{x: 0, y: 0, direction: :west}, :right)
+      assert probe.direction == :north
+    end
   end
 end
