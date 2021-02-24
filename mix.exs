@@ -19,6 +19,6 @@ defmodule Mars.MixProject do
   end
 
   defp deps do
-    []
+    [{:mock, "~> 0.3", only: :test}]
   end
 end
