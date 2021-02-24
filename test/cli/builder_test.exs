@@ -12,7 +12,7 @@ defmodule Cli.BuilderTest do
   end
 
   describe "build_probe/1" do
-    @moves  "MMLR"
+    @moves "MMLR"
 
     test "returns a tuple with probe and moves" do
       expected_moves = ["M", "M", "L", "R"]
@@ -24,6 +24,7 @@ defmodule Cli.BuilderTest do
       assert probe.x == 5
       assert probe.y == 5
     end
+
     test "builds a probe with a valid direction" do
       assert {probe, _moves} = Builder.build_probe([" 5 5 N\n", @moves])
       assert probe.direction == :north
