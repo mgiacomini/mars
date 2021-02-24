@@ -18,5 +18,5 @@ mix test
 ## Running the application
 
 ```sh
-mix mars.run path/to/file.txt
+mix mars.explore path/to/file.txt
 ```

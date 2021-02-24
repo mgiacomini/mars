@@ -1,26 +1,27 @@
 defmodule Cli do
   @moduledoc "Use this module to run the application from cli"
-
-  alias Cli.Builder
+  import Cli.Builder, only: [build_topology: 1, build_probe: 1]
 
   @spec run(String.t()) :: :ok
   def run(file_path) do
-    {header, lines} =
-      file_path
-      |> File.read!()
-      |> String.split("\n")
-      |> Enum.map(&String.trim/1)
-      |> List.pop_at(0)
-
-    topology = Builder.build_topology(header)
+    {header, lines} = read_file!(file_path)
+    topology = build_topology(header)
 
     lines
     |> Enum.chunk_every(2)
-    |> Enum.map(&Builder.build_probe/1)
+    |> Enum.map(&build_probe/1)
     |> Enum.map(fn {probe, moves} ->
       Mars.explore(topology, probe, moves)
     end)
     |> Enum.each(&render_result/1)
+  end
+
+  defp read_file!(path) do
+    path
+    |> File.read!()
+    |> String.split("\n")
+    |> Enum.map(&String.trim/1)
+    |> List.pop_at(0)
   end
 
   ## Render functions
